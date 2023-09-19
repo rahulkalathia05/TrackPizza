@@ -3,7 +3,7 @@
  import { CardWidget } from './CardWidget'
 
 export async function initStripe() {
-    const stripe = await loadStripe('pk_test_51Hf6vbDfWW6uHRy7b6Upoa4bWhGYmk2ElEN4AiFeqozzlccU6OpAoD9d1oIar3qg9i8ASiOs9ly4rFJQOTPM5MMk00GN7COA2N');
+    const stripe = await loadStripe('pk_test_51Ns8lNSDgF73KAozjGWm3ImSlDIT92gjnMfxSooEKU2fyq9nkzYMPL03NGpPIAyVDj8GKRXi77Aq0sRfPqn5SNGE008QSktdSi');
     let card = null;
     // function mountWidget() {
     //         const elements = stripe.elements()
@@ -59,6 +59,7 @@ if(paymentForm) {
         if (!card) {
             // Ajax
             placeOrder(formObject);
+            console.log(formObject);
             return;
         }
 
@@ -67,13 +68,13 @@ if(paymentForm) {
         placeOrder(formObject);
 
 
-        // // Verify card
-        // stripe.createToken(card).then((result) => {
-        //     formObject.stripeToken = result.token.id;
-        //     placeOrder(formObject);
-        // }).catch((err) => {
-        //     console.log(err)
-        // })
+        // Verify card
+        stripe.createToken(card).then((result) => {
+            formObject.stripeToken = result.token.id;
+            placeOrder(formObject);
+        }).catch((err) => {
+            console.log(err)
+        })
 
     })
 }

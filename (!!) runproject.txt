@@ -1,0 +1,5 @@
+1) Make only one terminal and type "npm run dev" command
+2) Then Open local:3300 1 in incognito and 1 in non-incognito
+3) In incognito we will add admin : So put password of abcxyz@gmail.com(i.e. password = "abcxyz") and in email put admin@gmail.com
+4) In non-incognito we will add user/customer : So put password by auto fill
+5) Stripe Payment : Pay with Card ---> Stripe Account --> ytboyrahul05@gmail.com
